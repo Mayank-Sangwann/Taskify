@@ -96,7 +96,7 @@ const TaskListScreen = ({ navigation }) => {
                     <Text style={styles.headerText1}>Welcome to</Text>
                     <Text style={styles.headerText2}>TASKIFY!</Text>
                 </View>
-                <Text style={styles.hd2}>--Categories--</Text>
+                <Text style={styles.hd2}>-Categories-</Text>
                 
                 <CategoryList 
                     categories={categories} 

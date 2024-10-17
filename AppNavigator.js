@@ -5,6 +5,7 @@ import TaskListScreen from './screens/TaskListScreen';
 import TaskCategoryScreen from './screens/TaskCategoryScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useFonts } from "expo-font";
+import AppLoading from 'expo-app-loading';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,8 +41,10 @@ const App = () => {
                         name="TaskCategoryScreen" 
                         component={TaskCategoryScreen}
                         options={({ route }) => ({
+                            headerSearchBarOptions: {
+                                placeholder: 'Search Task...',
+                              },
                             title: route.params.category,
-                            // headerTransparent: true, 
                             headerTitleStyle: {
                                 fontFamily: 'Poppins-ExtraBold',
                                 fontSize: 22

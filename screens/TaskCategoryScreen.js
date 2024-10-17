@@ -110,10 +110,11 @@ const TaskCategoryScreen = ({ route }) => {
             </View>
             <View style={styles.taskActions}>
                 <TouchableOpacity onPress={() => handleEditTask(item)}>
-                    <Ionicons name="create" size={24} color="blue" />
+                    <Ionicons name="create" size={26} color="blue" />
                 </TouchableOpacity>
+                <Text>  </Text>
                 <TouchableOpacity onPress={() => handleDeleteTask(item.id)}>
-                    <Ionicons name="trash" size={24} color="red" />
+                    <Ionicons name="trash" size={26} color="red" />
                 </TouchableOpacity>
             </View>
         </View>
