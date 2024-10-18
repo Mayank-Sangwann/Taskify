@@ -31,8 +31,6 @@ Show the completion progress of tasks.
   <img src="https://github.com/user-attachments/assets/c10ca228-7f3f-4066-87ca-ac645e4b0831" alt="Image 5" width="200" />
 </p>
 
-  ![ScreenRecording_10-18-202405-46-07_11-ezgif com-optimize](https://github.com/user-attachments/assets/7afeb4e1-66c6-4f97-bb8e-a9c4a5f1b8bb)
-
 ## Installation
 
 1. Clone the repository.
