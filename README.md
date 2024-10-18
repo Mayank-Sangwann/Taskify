@@ -12,8 +12,13 @@ Remove a task from the list.
 Show the completion progress of tasks.
 ## App Demo
 
-![IMG_4489](https://github.com/user-attachments/assets/7a5ca42b-c777-4fbc-a46c-70ece4976f13)
-![IMG_4490](https://github.com/user-attachments/assets/1562a641-5420-4483-bef8-1ce10c37b6e9)
-![IMG_4491](https://github.com/user-attachments/assets/77627f9c-6f36-45b3-ad54-fcad15a1900d)
-![IMG_4492](https://github.com/user-attachments/assets/6b206c1a-73d3-4b39-8200-966165236713)
-![IMG_4493](https://github.com/user-attachments/assets/c10ca228-7f3f-4066-87ca-ac645e4b0831)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7a5ca42b-c777-4fbc-a46c-70ece4976f13" alt="Image 1" width="200" />
+  <img src="https://github.com/user-attachments/assets/1562a641-5420-4483-bef8-1ce10c37b6e9" alt="Image 2" width="200" />
+  <img src="https://github.com/user-attachments/assets/77627f9c-6f36-45b3-ad54-fcad15a1900d" alt="Image 3" width="200" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6b206c1a-73d3-4b39-8200-966165236713" alt="Image 4" width="200" />
+  <img src="https://github.com/user-attachments/assets/c10ca228-7f3f-4066-87ca-ac645e4b0831" alt="Image 5" width="200" />
+</p>
