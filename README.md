@@ -13,8 +13,8 @@ Show the completion progress of tasks.
 ## App Demo
 
 <p align="center">
-  <a href="[https://www.youtube.com/watch?v=YOUR_VIDEO_I](https://github.com/user-attachments/assets/a1ddbf87-62d0-4bf2-87e5-f7acbb022d38
-)" target="_blank">
+  <a href="https://github.com/user-attachments/assets/a1ddbf87-62d0-4bf2-87e5-f7acbb022d38
+" target="_blank">
     <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg" alt="Video Thumbnail" width="300" />
   </a>
 </p>
