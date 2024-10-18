@@ -1,15 +1,8 @@
 
 # React Native Todo App
 
-This is a simple mobile application developed in React Native using Expo and SQLite. The application is an to-do list, which contains the followig functionalities:
+This is a To-Do application developed in React Native using Expo and SQLite.
 
-Add a new task.
-
-Mark and unmark a task as completed.
-
-Remove a task from the list.
-
-Show the completion progress of tasks.
 
 ## Features
 
