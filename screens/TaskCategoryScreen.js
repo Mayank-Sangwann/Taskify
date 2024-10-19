@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity, SafeAreaView, Alert, } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { useFonts } from "expo-font";
-import AppLoading from 'expo-app-loading';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import EditTaskModal from '../components/EditTaskModal';
-import AddTaskModal from '../components/AddTaskModal';
-import styles from '../styles';
+import { View, Text, FlatList, TouchableOpacity, SafeAreaView, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; // For icons like edit and delete
+import { useFonts } from "expo-font"; // To load custom fonts
+import AppLoading from 'expo-app-loading'; // To show loading screen until fonts are loaded
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6'; // Another icon set
+import EditTaskModal from '../components/EditTaskModal'; // Modal for editing tasks
+import AddTaskModal from '../components/AddTaskModal'; // Modal for adding tasks
+import styles from '../styles'; // Importing the styles
 
-import { initializeDatabase, getTasksByCategory, addTask, updateTask, deleteTask } from '../database/database';
+import { initializeDatabase, getTasksByCategory, addTask, updateTask, deleteTask } from '../database/database'; // Database functions
 
 const TaskCategoryScreen = ({ route }) => {
+    // Extract category passed via route
     const { category } = route.params;
-    const [filteredTasks, setFilteredTasks] = useState([]);
-    const [editTaskVisible, setEditTaskVisible] = useState(false);
-    const [addTaskVisible, setAddTaskVisible] = useState(false);
-    const [currentTask, setCurrentTask] = useState(null);
-    const [newTask, setNewTask] = useState({ name: '', description: '', category });
+
+    // State variables
+    const [filteredTasks, setFilteredTasks] = useState([]); // Store tasks of the selected category
+    const [editTaskVisible, setEditTaskVisible] = useState(false); // To control visibility of EditTaskModal
+    const [addTaskVisible, setAddTaskVisible] = useState(false); // To control visibility of AddTaskModal
+    const [currentTask, setCurrentTask] = useState(null); // Task to be edited
+    const [newTask, setNewTask] = useState({ name: '', description: '', category }); // New task data
+
+    // Load custom fonts
     const [fontsLoaded] = useFonts({
         "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
         "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
@@ -27,94 +32,108 @@ const TaskCategoryScreen = ({ route }) => {
         "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
         "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
         "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
-      });
+    });
+
+    // Show loading screen until fonts are loaded
     if (!fontsLoaded) {
         return <AppLoading />;
     }
 
+    // Initialize database and load tasks when the component is mounted
     useEffect(() => {
-        initializeDatabase();
-        loadTasks();
+        initializeDatabase(); // Initialize the SQLite database
+        loadTasks(); // Load tasks for the selected category
     }, []);
 
+    // Function to load tasks by category from the database
     const loadTasks = () => {
         getTasksByCategory(
-            category,
-            (tasks) => setFilteredTasks(tasks),
-            (error) => console.error('Error loading tasks:', error)
+            category, // Category passed via route
+            (tasks) => setFilteredTasks(tasks), // Update the state with the tasks fetched
+            (error) => console.error('Error loading tasks:', error) // Handle errors
         );
     };
 
+    // Function to handle task deletion
     const handleDeleteTask = (taskId) => {
+        // Confirm before deleting the task
         Alert.alert(
             'Delete Task',
             'Are you sure you want to delete this task?',
             [
-                { text: 'Cancel',style: 'cancel' },
+                { text: 'Cancel', style: 'cancel' },
                 {
                     text: 'Delete',
                     onPress: () => {
                         deleteTask(
-                            taskId,
-                            () => loadTasks(),
-                            (error) => console.error('Error deleting task:', error)
+                            taskId, // Task ID to delete
+                            () => loadTasks(), // Reload tasks after deletion
+                            (error) => console.error('Error deleting task:', error) // Handle errors
                         );
-                    }
+                    },
                 },
             ],
             { cancelable: true }
         );
     };
 
+    // Function to handle editing a task
     const handleEditTask = (task) => {
-        setCurrentTask(task);
-        setEditTaskVisible(true);
+        setCurrentTask(task); // Set the selected task for editing
+        setEditTaskVisible(true); // Open the edit modal
     };
 
+    // Function to handle adding a new task
     const handleAddTask = () => {
-        if (!newTask.name.trim()) return;
+        if (!newTask.name.trim()) return; // Validate that task name is not empty
 
         addTask(
-            newTask,
+            newTask, // New task details
             () => {
-                loadTasks();
-                setAddTaskVisible(false);
-                setNewTask({ name: '', description: '', category });
+                loadTasks(); // Reload tasks after adding a new one
+                setAddTaskVisible(false); // Close the add task modal
+                setNewTask({ name: '', description: '', category }); // Reset the new task input
             },
-            (error) => console.error('Error adding task:', error)
+            (error) => console.error('Error adding task:', error) // Handle errors
         );
     };
 
+    // Function to save changes to a task
     const handleSaveTask = () => {
         if (!currentTask.name.trim()) {
-            Alert.alert('Validation Error', 'Task name is required.');
+            Alert.alert('Validation Error', 'Task name is required.'); // Validate task name
             return;
         }
 
         updateTask(
-            currentTask,
+            currentTask, // Updated task details
             () => {
-                loadTasks();
-                setEditTaskVisible(false);
-                setCurrentTask(null);
+                loadTasks(); // Reload tasks after update
+                setEditTaskVisible(false); // Close the edit task modal
+                setCurrentTask(null); // Reset the current task
             },
-            (error) => console.error('Error updating task:', error)
+            (error) => console.error('Error updating task:', error) // Handle errors
         );
     };
 
+    // Function to render each task item in the list
     const renderTaskItem = ({ item }) => (
         <View style={styles.taskItem}>
             <View style={styles.taskDetails}>
-                <Text style={styles.taskText}>{item.name}</Text>
-                <Text style={styles.taskDescription}>{item.description}</Text>
+                {/* Task name */}
+                <Text style={styles.taskText}>{item.name}</Text> 
+                {/* Task description */}
+                <Text style={styles.taskDescription}>{item.description}</Text> 
             </View>
             <View style={styles.taskActions}>
                 <TouchableOpacity onPress={() => handleEditTask(item)}>
-                    <Ionicons name="create" size={26} color="blue" />
+                    {/* Edit icon */}
+                    <Ionicons name="create" size={26} color="blue" /> 
                 </TouchableOpacity>
-                <Text>  </Text>
+                <Text> </Text>
                 <TouchableOpacity onPress={() => handleDeleteTask(item.id)}>
-                    <Ionicons name="trash" size={26} color="red" />
+                    {/* Delete icon */}
+                    <Ionicons name="trash" size={26} color="red" /> 
                 </TouchableOpacity>
             </View>
         </View>
@@ -123,36 +142,43 @@ const TaskCategoryScreen = ({ route }) => {
     return (
         <SafeAreaView style={styles.container2}>
             <View style={styles.headerContainer2}>
-                <Text style={styles.headerText22}>Task's Left:</Text>
+                {/* Header for task count */}
+                <Text style={styles.headerText22}>Task's Left:</Text> 
             </View>
+            {/* Display the list of tasks */}
             <FlatList
                 data={filteredTasks}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={renderTaskItem}
+                keyExtractor={(item) => item.id.toString()} // Unique key for each task item
+                renderItem={renderTaskItem} // Function to render each task
             />
+            {/* Button to add a new task */}
             <TouchableOpacity
                 style={styles.addButton2}
-                onPress={() => setAddTaskVisible(true)}
+                onPress={() => setAddTaskVisible(true)} // Open add task modal
             >
                 <View style={styles.addButtonContainer}>
                     <Text style={styles.addButtonText}>Add New Task</Text>
-                    <FontAwesome6 style={styles.addButtonIcon} name="pencil" size={24} color="white" />
-                </View>     
+                    {/* Add icon */}
+                    <FontAwesome6 style={styles.addButtonIcon} name="pencil" size={24} color="white" /> 
+                </View>
             </TouchableOpacity>
 
+            {/* Modal to edit tasks */}
             <EditTaskModal
                 visible={editTaskVisible}
-                onClose={() => setEditTaskVisible(false)}
-                currentTask={currentTask}
-                setCurrentTask={setCurrentTask}
-                handleSaveTask={handleSaveTask}
+                onClose={() => setEditTaskVisible(false)} // Close edit modal
+                currentTask={currentTask} // Pass the current task to the modal
+                setCurrentTask={setCurrentTask} // Function to update the current task
+                handleSaveTask={handleSaveTask} // Function to save task
             />
+
+            {/* Modal to add new tasks */}
             <AddTaskModal
                 visible={addTaskVisible}
-                onClose={() => setAddTaskVisible(false)}
-                newTask={newTask}
-                setNewTask={setNewTask}
-                handleAddTask={handleAddTask}
+                onClose={() => setAddTaskVisible(false)} // Close add task modal
+                newTask={newTask} // Pass the new task to the modal
+                setNewTask={setNewTask} // Function to update new task details
+                handleAddTask={handleAddTask} // Function to add task
             />
         </SafeAreaView>
     );
