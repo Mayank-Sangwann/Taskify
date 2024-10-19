@@ -67,9 +67,4 @@ const EditTaskModal = ({ visible, onClose, currentTask, setCurrentTask, handleSa
     );
 };
 
-// Default props for the component
-EditTaskModal.defaultProps = {
-    setCurrentTask: () => {}, // Default empty function for setCurrentTask
-};
-
 export default EditTaskModal; // Exporting the EditTaskModal component
