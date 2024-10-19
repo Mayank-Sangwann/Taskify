@@ -27,8 +27,10 @@ const EditTaskModal = ({ visible, onClose, currentTask, setCurrentTask, handleSa
                 activeOpacity={1} // Make TouchableOpacity non-interactive to allow background tap
                 onPress={onClose} // Close modal on background press
             >
-                <View style={styles.editTaskContainer}> {/* Container for editing task */}
-                    <Text style={styles.editTaskTitle}>Edit Task</Text> {/* Title of the modal */}
+                {/* Container for editing task */}
+                <View style={styles.editTaskContainer}> 
+                    {/* Title of the modal */}
+                    <Text style={styles.editTaskTitle}>Edit Task</Text> 
                     
                     {/* Input for task name */}
                     <TextInput
@@ -59,7 +61,8 @@ const EditTaskModal = ({ visible, onClose, currentTask, setCurrentTask, handleSa
 
                     {/* Button to save the edited task */}
                     <TouchableOpacity style={styles.saveButton} onPress={handleSaveTask}>
-                        <Entypo name="add-to-list" size={45} color="white" /> {/* Icon for save button */}
+                        {/* Icon for save button */}
+                        <Entypo name="add-to-list" size={45} color="white" /> 
                     </TouchableOpacity>
                 </View>
             </TouchableOpacity>
