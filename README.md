@@ -23,13 +23,12 @@ Expo Splash Screen: For improved app loading experience.
 **Offline Functionality**: Since task management apps are frequently used on the go, the app was designed to work fully offline using SQLite for local storage. This ensures that tasks can be accessed, created, and edited without internet connectivity.
 
 ## Challenges Overcome
-Integrating Swipe-to-Delete: Initially, we faced difficulties in integrating swipe gestures with task deletion. After experimenting with several libraries, we settled on react-native-reanimated for smooth swipe functionality. Handling swipe interactions alongside touch-based navigation required careful balancing of event listeners to prevent unintentional task deletions.
 
-Transitioning from expo-app-loading to expo-splash-screen: During development, we received warnings regarding the deprecation of expo-app-loading. We successfully migrated to expo-splash-screen by implementing SplashScreen.preventAutoHideAsync() and managing splash screen behavior effectively, ensuring a seamless user experience during app startup.
+**Dependency Management**: Managing dependencies effectively was another challenge. With multiple libraries and packages used for functionality (like React Navigation, Expo, and others), keeping them updated and ensuring compatibility between them was essential. Conflicts arising from version mismatches and deprecated packages required careful monitoring, which sometimes led to additional troubleshooting and testing to ensure the application remained stable and functional.
 
-Data Persistence with SQLite: Ensuring data consistency when dealing with SQLite across multiple screens (such as task categories and task details) required careful handling of database queries and state management. We managed this challenge by implementing centralized logic for database interactions.
+**SQLite Database Integration**: One of the challenges faced during the development was integrating SQLite for data storage. Understanding how to set up the database schema, perform CRUD (Create, Read, Update, Delete) operations, and manage data effectively required a significant amount of learning. Handling asynchronous database calls and ensuring data integrity while preventing potential data loss during operations were also critical aspects that needed careful implementation.
 
-## Screenshots
+## Demo
 
 <img src="https://github.com/user-attachments/assets/d571a735-1882-434b-bc79-861e60a0fa38" alt="Home Screen" style="width: 30%;">
 <img src="https://github.com/user-attachments/assets/c5ee10ef-ee2b-4600-89ae-8f5caee80a76" alt="Add Task Screen" style="width: 30%;">
