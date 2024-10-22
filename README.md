@@ -31,8 +31,8 @@ Data Persistence with SQLite: Ensuring data consistency when dealing with SQLite
 
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/d571a735-1882-434b-bc79-861e60a0fa38" alt="Home Screen" style="width: 30%; margin-right: 10px;">
-<img src="https://github.com/user-attachments/assets/c5ee10ef-ee2b-4600-89ae-8f5caee80a76" alt="Add Task Screen" style="width: 30%; margin-right: 10px;">
+<img src="https://github.com/user-attachments/assets/d571a735-1882-434b-bc79-861e60a0fa38" alt="Home Screen" style="width: 30%;">
+<img src="https://github.com/user-attachments/assets/c5ee10ef-ee2b-4600-89ae-8f5caee80a76" alt="Add Task Screen" style="width: 30%;">
 <img src="https://github.com/user-attachments/assets/1476dc6c-3bde-4c1b-8c58-84217fd939c8" alt="Task List Screen" style="width: 30%;">
 <img src="https://github.com/user-attachments/assets/d6f58991-d694-4718-8c51-7d21962413ec" alt="Task List Screen" style="width: 30%;">
 <img src="https://github.com/user-attachments/assets/fbe91a9d-f494-4a85-a7b0-d1e7d2abbcec" alt="Task List Screen" style="width: 30%;">
