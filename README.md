@@ -37,5 +37,7 @@ Expo Splash Screen: For improved app loading experience.
 <img src="https://github.com/user-attachments/assets/fbe91a9d-f494-4a85-a7b0-d1e7d2abbcec" alt="Task List Screen" style="width: 30%;">
 <img src="https://github.com/user-attachments/assets/c5e1d266-0eaa-4c87-8bfa-c49329fe70e0" alt="Task List Screen" style="width: 30%;">
 
-Contributing
+
+
+### Contributing
 Feel free to contribute by opening issues or creating pull requests. Contributions to improve the app or fix bugs are welcome!
