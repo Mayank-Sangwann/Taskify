@@ -2,23 +2,8 @@ import React from 'react';
 import { FlatList, Alert } from 'react-native'; 
 import CategoryItem from './CategoryItem'; 
 
-/**
- * CategoryList component renders a list of categories.
- * 
- * @param {object} props - Component properties
- * @param {Array<string>} props.categories - An array of category names.
- * @param {function} props.onCategoryPress - Function to handle press on a category item.
- * @param {function} props.onDeleteCategory - Function to handle deletion of a category.
- */
 const CategoryList = ({ categories, onCategoryPress, onDeleteCategory }) => {
-    
-    /**
-     * Renders a single category item in the list.
-     * 
-     * @param {object} param - Contains item data from FlatList
-     * @param {string} param.item - The category name
-     * @returns {JSX.Element} - A rendered CategoryItem component
-     */
+
     const renderCategoryItem = ({ item }) => (
         <CategoryItem
             item={item} // Pass the category name as item

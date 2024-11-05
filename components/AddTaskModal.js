@@ -3,23 +3,8 @@ import { View, Text, TextInput, TouchableOpacity, Modal, Alert } from 'react-nat
 import { Entypo } from '@expo/vector-icons';
 import styles from '../styles';
 
-/**
- * AddTaskModal component for displaying a modal to add a new task.
- * 
- * @param {boolean} visible - Determines whether the modal is visible or not.
- * @param {function} onClose - Function to close the modal.
- * @param {object} newTask - The new task object with its properties (name, description, category).
- * @param {function} setNewTask - Function to update the task state.
- * @param {function} handleAddTask - Function to handle adding the new task.
- */
 const AddTaskModal = ({ visible, onClose, newTask, setNewTask, handleAddTask }) => {
 
-    /**
-     * Validates the task inputs before adding.
-     * Ensures both task name and category are filled.
-     * 
-     * @returns {boolean} - Returns true if inputs are valid, otherwise false.
-     */
     const validateInputs = () => {
         if (!newTask.name.trim() || !newTask.category.trim()) {
             Alert.alert('Validation Error', 'Task name and category are required.');

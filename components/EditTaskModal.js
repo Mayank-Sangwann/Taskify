@@ -3,17 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, Modal } from 'react-native';
 import { Entypo } from '@expo/vector-icons'; 
 import styles from '../styles'; 
 
-/**
- * EditTaskModal component displays a modal for editing a task's details.
- * 
- * @param {object} props - Component properties
- * @param {boolean} props.visible - Indicates if the modal is visible.
- * @param {function} props.onClose - Function to close the modal.
- * @param {object} props.currentTask - The current task object to be edited.
- * @param {function} props.setCurrentTask - Function to update the current task state.
- * @param {function} props.handleSaveTask - Function to handle saving the edited task.
- * @returns {JSX.Element} - A modal for editing task details.
- */
 const EditTaskModal = ({ visible, onClose, currentTask, setCurrentTask, handleSaveTask }) => {
     return (
         <Modal
